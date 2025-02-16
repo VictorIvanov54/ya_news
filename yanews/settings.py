@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,7 +59,14 @@ DATABASES = {
 }
 
 
-AUTH_PASSWORD_VALIDATORS = []
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 
 LANGUAGE_CODE = 'ru'
